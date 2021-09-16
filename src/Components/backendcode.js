@@ -71,3 +71,15 @@
 
 //redux practice code finish here
 //redux practice code finish here
+
+import React from 'react';
+
+const backendcode = () => {
+    return (
+        <div>
+            
+        </div>
+    );
+};
+
+export default backendcode;

@@ -6,18 +6,24 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Navbar from '../Components/Navbar'
 
 
+import { useSelector } from 'react-redux'
 
+import "../App.css"
 
 export default function Product() {
   const { data, error, isLoading } = useGetPokemonByNameQuery();
  
- console.log(data);
+  const count2 = useSelector((state) => state.counter.nayeem)
  
 
   return (
-    <div>
+    <div  className={count2 ? "dark-mode" : "light-mode"}>
+    <Navbar/>
+
+
       {error ? (
         <>Oh no, there was an error</>
       ) : isLoading ? (
@@ -29,8 +35,16 @@ export default function Product() {
 
          
           {data.map((fakedata) => (
-            <div className="col-5  ms-5 mb-4">
-              <div class="card border border-danger">
+           
+
+            <div className="col-5  ms-5 mb-4 ">
+             <div  >
+             
+              <div class="card border border-danger  ">
+              <div className={count2 ? "dark-mode1" : "light-mode"}>
+              
+              
+             
                 <div class="card-header text-center">
                   <h3>{fakedata.nameId}</h3>
                 </div>
@@ -55,8 +69,15 @@ export default function Product() {
 
                   </div>
                 </div>
+                </div>
+                
               </div>
+              </div>
+              
             </div>
+            
+            
+            
           ))}
         </div>
       ) : null}

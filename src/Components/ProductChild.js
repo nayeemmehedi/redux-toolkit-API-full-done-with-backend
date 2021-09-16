@@ -5,13 +5,16 @@ import { useParams } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import "./index2.css";
+import Navbar from '../Components/Navbar'
+import { useSelector } from 'react-redux' 
 
 const ProductChild = () => {
 
   const history = useHistory();
   const { id } = useParams();
 
-  
+   const count2 = useSelector((state) => state.counter.nayeem)
+ 
 
   const [newValuw, setnewValuw] = useState({});
   const [updateValue, setupdateValue] = useState(false);
@@ -103,7 +106,10 @@ if(responseDelete.isSuccess){
 }
 
   return (
-    <div>
+   <>
+
+    <div className={count2 ? "dark-mode" : "light-mode"}  style={{height:"800px"}}>
+     <Navbar></Navbar>
       <div class="text-center">
         <h1>Full Description Page</h1>
         <hr />
@@ -159,6 +165,9 @@ if(responseDelete.isSuccess){
 
 
     </div>
+   
+   
+   </>
   );
 };
 
